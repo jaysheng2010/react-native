@@ -8,10 +8,12 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import Icon from "react-native-vector-icons/Ionicons";
+
+import { Ionicons } from "@expo/vector-icons";   // ✅ FIXED
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -68,7 +70,7 @@ function HomeTabs() {
         component={GuitarSheetScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="musical-note" color={color} size={size} />
+            <Ionicons name="musical-note" color={color} size={size} />
           ),
         }}
       />
@@ -77,7 +79,7 @@ function HomeTabs() {
         component={CartScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="cart" color={color} size={size} />
+            <Ionicons name="cart" color={color} size={size} />
           ),
         }}
       />
@@ -98,7 +100,7 @@ function SplashScreen({ navigation }) {
       <View style={styles.screens}>
         <TouchableOpacity
           style={styles.getStarted}
-          onPress={() => navigation.navigate("Home")} // 👈 navigate to HomeTabs
+          onPress={() => navigation.navigate("Home")}
         >
           <Text style={styles.getStartedText}>Get Started</Text>
         </TouchableOpacity>
